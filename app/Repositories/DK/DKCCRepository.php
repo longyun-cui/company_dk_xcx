@@ -24566,7 +24566,8 @@ EOF;
             $data_list = $post_data['data'];
             foreach ($data_list as $data)
             {
-                if($data['status'] != 4)
+//                if($data['status'] != 4)
+                if(!in_array($data['status'],[4,5]))
                 {
                     continue;
                 }
@@ -24602,7 +24603,18 @@ EOF;
                 }
                 else
                 {
-                    $order_insert_data["order_category"] = 1;
+                    if($data['status'] == 4)
+                    {
+                        $order_insert_data["order_category"] = 1;
+                    }
+                    else if($data['status'] == 5)
+                    {
+                        $order_insert_data["order_category"] = 11;
+                    }
+                    else
+                    {
+                        $order_insert_data["order_category"] = 1;
+                    }
                     $order_insert_data["created_type"] = 99;
                     $order_insert_data["created_source"] = 13;
                     $order_insert_data["active"] = 1;
@@ -24623,11 +24635,11 @@ EOF;
                         $order_insert_data["recording_address_list"] = json_encode($file);
                     }
 
+                    $mine = new DK_Common__Order;
+                    $bool_o = $mine->fill($order_insert_data)->save();
+                    if(!$bool_o) throw new Exception("DK_Common__Order--insert--fail");
                 }
 
-                $mine = new DK_Common__Order;
-                $bool_o = $mine->fill($order_insert_data)->save();
-                if(!$bool_o) throw new Exception("DK_Common__Order--insert--fail");
             }
 
             DB::commit();
