@@ -31,6 +31,7 @@
             <input type="text" class="search-filter form-filter filter-keyup" name="staff-name" placeholder="姓名" />
             <input type="text" class="search-filter form-filter filter-keyup" name="staff-api-staffNo" placeholder="API坐席ID" />
             <input type="text" class="search-filter form-filter filter-keyup" name="staff-lxy-staffNo" placeholder="L-ID" />
+            <input type="text" class="search-filter form-filter filter-keyup" name="staff-psy-staffNo" placeholder="P-ID" />
 
 
             @if(in_array($me->staff_category,[0,1,9,71]))

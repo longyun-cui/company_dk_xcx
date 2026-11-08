@@ -137,6 +137,7 @@ class DK_Staff__StaffRepository {
 
         if(!empty($post_data['api_staffNo'])) $query->where('api_staffNo', $post_data['api_staffNo']);
         if(!empty($post_data['lxy_staffNo'])) $query->where('lxy_staffNo', $post_data['lxy_staffNo']);
+        if(!empty($post_data['psy_staffNo'])) $query->where('psy_staffNo', $post_data['psy_staffNo']);
 
         // 状态 [|]
         if(!empty($post_data['item_status']))

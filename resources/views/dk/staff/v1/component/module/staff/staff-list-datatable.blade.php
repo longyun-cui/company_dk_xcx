@@ -28,6 +28,7 @@
                     d.name = $('input[name="staff-name"]').val();
                     d.api_staffNo = $('input[name="staff-api-staffNo"]').val();
                     d.lxy_staffNo = $('input[name="staff-lxy-staffNo"]').val();
+                    d.psy_staffNo = $('input[name="staff-psy-staffNo"]').val();
                     d.department = $tableSearch.find('select[name="staff-department"]').val();
                     d.team = $tableSearch.find('select[name="staff-team"]').val();
                     d.item_status = $tableSearch.find('select[name="staff-status"]').val();
